@@ -118,18 +118,15 @@ carro.addPessoas = function(x){
 	var total = carro.quantidadePessoas + x;
 	var vazios = carro.assentos - carro.quantidadePessoas;
 
-	if (carro.quantidadePessoas >= carro.assentos){
-		carro.quantidadePessoas += x;
+	if (carro.quantidadePessoas >= carro.assentos && total >= carro.assentos){
+		//carro.quantidadePessoas += x;
 		return 'o carro já está lotado';
 	}
 
 	if (vazios < x){
-		if (vazios == 1){
-			return 'só cabem mais ' + (vazios) + ' pessoa no carro!';
-		}
-		else {
-			return 'só cabem mais ' + (vazios)+ ' pessoas no carro!';
-		} 	
+		var ps = (vazios == 1)?' pessoa':' pessoas';
+		var ps1 = (vazios == 1)?' cabe':' cabem';
+		return 'só' + ps1 +' mais ' + (vazios) + ps +' no carro!';
 	}
 	
 	carro.quantidadePessoas += x;
