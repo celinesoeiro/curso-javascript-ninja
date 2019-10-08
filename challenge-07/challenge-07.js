@@ -68,12 +68,10 @@ Só vamos mudar o range:
 */
 console.log( 'Números pares entre 100 e 120:' );
 for (var k = 100; k <= 120; k++){
-	(k%2 == 0)?console.log(k):k=k;
-	k++;
+	(k%2 == 0)?console.log(k):'';
 }
 
 console.log( 'Números ímpares entre 111 e 125:' );
 for (var k = 111; k <= 125; k++){
-	(k%2 == 0)?k=k:console.log(k);
-	k++;
+	(k%2 == 0)?'':console.log(k);
 }
