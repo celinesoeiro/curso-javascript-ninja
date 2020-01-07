@@ -24,7 +24,7 @@ Envolva todo o código desse desafio em uma IIFE.
 	var justNumbers = [];
 	numberObjects.forEach(function(item,index){
 		justNumbers[index] = item.number;
-	})
+	});
 	console.log(justNumbers);
 
 	/*
@@ -93,37 +93,49 @@ Envolva todo o código desse desafio em uma IIFE.
 	console.log( '\nNumber objects' );
 	console.log(numberObjects);
 
-})
+	/*
+	Verifique se existem em algum índice de numberObjects um objeto ìgual a
+	{ number: 2 }. Se houver, mostre no console:
+	- "Existe um objeto { number: 2 } em numberObjects!"
+	Senão, mostre a frase:
+	- "Não existe um objeto { number: 2 } em numberObjects :("
+	Consegue prever o resultado? Deixe uma mensagem no console tentando explicar
+	o que acontece ;)
+	*/
+	console.log( '\nExiste um { number: 2 } em numberObjects?' );
+	var num2 = numberObjects.some(function(item){
+		return item === { number: 2 };
+	})
+	console.log(num2?('Existe um objeto { number: 2 } em numberObjects!'):('Não existe um objeto { number: 2 } em numberObjects :('));
+	// não vai achar porque {} != {}, cada objeto tem sua propria referencia, portanto são diferentes. Seria igual se criasse uma referencia do mesmo objt:
+	var objt = numberObjects[1];
+	if (numberObjects.indexOf(objt)>-1){
+		console.log('Existe um objeto { number: 2 } em numberObjects!');
+	}
+	else {
+		console.log('Não existe um objeto { number: 2 } em numberObjects');
+	}
+	
+	/*
+	Fazendo o mesmo do exercício acima, mas começando a buscar do último índice,
+	será que obtemos um resultado diferente? Faça a busca a partir do índice 2.
+	*/
+	console.log( '\nE buscando a partir do último índice, o { number: 2 } existe?' );
+	if (numberObjects.indexOf({ number: 2 }, 2) > -1){
+		console.log('Existe um objeto { number: 2 } em numberObjects!');
+	}
+	else {
+		console.log('Não existe um objeto { number: 2 } em numberObjects');
+	}
 
-/*
-Verifique se existem em algum índice de numberObjects um objeto ìgual a
-{ number: 2 }. Se houver, mostre no console:
-- "Existe um objeto { number: 2 } em numberObjects!"
-Senão, mostre a frase:
-- "Não existe um objeto { number: 2 } em numberObjects :("
-Consegue prever o resultado? Deixe uma mensagem no console tentando explicar
-o que acontece ;)
-*/
-console.log( '\nExiste um { number: 2 } em numberObjects?' );
-var num2 = numberObjects.some(function(item){
-	return item === { number: 2 };
-})
-console.log(num2?('Existe um objeto { number: 2 } em numberObjects!'):('Não existe um objeto { number: 2 } em numberObjects :('));
-
-
-/*
-Fazendo o mesmo do exercício acima, mas começando a buscar do último índice,
-será que obtemos um resultado diferente? Faça a busca a partir do índice 2.
-*/
-console.log( '\nE buscando a partir do último índice, o { number: 2 } existe?' );
-
-
-/*
-Verifique se `justMod2Or3` é um array. Se for, mostre-o no console, no
-formato de String.
-*/
-console.log( '\njustMod2Or3 é um array? Se for, a representação dele em String é:' );
-if (Array.isArray(justMod2Or3)){
-	justMod2Or3.toString();
-};
+	/*
+	Verifique se `justMod2Or3` é um array. Se for, mostre-o no console, no
+	formato de String.
+	*/
+	console.log( '\njustMod2Or3 é um array? Se for, a representação dele em String é:' );
+	if (Array.isArray(justMod2Or3)){
+		justMod2Or3.toString();
+	};
+	
+})();
 
